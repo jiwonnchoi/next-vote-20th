@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}
