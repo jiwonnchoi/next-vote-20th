@@ -84,7 +84,7 @@ const config: Config = {
           letterSpacing: "-0.00125rem",
         },
         ".subhead-1-bold": {
-          fontFamily: theme("fontFamily.suite"),
+          fontFamily: theme("fontFamily.suit"),
           fontSize: "1.25rem",
           fontStyle: "normal",
           fontWeight: "600",
@@ -92,7 +92,7 @@ const config: Config = {
           letterSpacing: "-0.00125rem",
         },
         ".subhead-2-bold": {
-          fontFamily: theme("fontFamily.suite"),
+          fontFamily: theme("fontFamily.suit"),
           fontSize: "1.125rem",
           fontStyle: "normal",
           fontWeight: "700",
@@ -100,7 +100,7 @@ const config: Config = {
           letterSpacing: "-0.00113rem",
         },
         ".subhead-med": {
-          fontFamily: theme("fontFamily.suite"),
+          fontFamily: theme("fontFamily.suit"),
           fontSize: "1.125rem",
           fontStyle: "normal",
           fontWeight: "500",
@@ -108,7 +108,7 @@ const config: Config = {
           letterSpacing: "-0.00113rem",
         },
         ".body-1-bold": {
-          fontFamily: theme("fontFamily.suite"),
+          fontFamily: theme("fontFamily.suit"),
           fontSize: "1rem",
           fontStyle: "normal",
           fontWeight: "700",
@@ -116,7 +116,7 @@ const config: Config = {
           letterSpacing: "-0.001rem",
         },
         ".body-1-med": {
-          fontFamily: theme("fontFamily.suite"),
+          fontFamily: theme("fontFamily.suit"),
           fontSize: "1rem",
           fontStyle: "normal",
           fontWeight: "500",
@@ -124,7 +124,7 @@ const config: Config = {
           letterSpacing: "-0.001rem",
         },
         ".body-2-bold": {
-          fontFamily: theme("fontFamily.suite"),
+          fontFamily: theme("fontFamily.suit"),
           fontSize: "0.875rem",
           fontStyle: "normal",
           fontWeight: "700",
@@ -132,7 +132,7 @@ const config: Config = {
           letterSpacing: "-0.00088rem",
         },
         ".body-2-med": {
-          fontFamily: theme("fontFamily.suite"),
+          fontFamily: theme("fontFamily.suit"),
           fontSize: "0.875rem",
           fontStyle: "normal",
           fontWeight: "500",
@@ -140,7 +140,7 @@ const config: Config = {
           letterSpacing: "-0.00088rem",
         },
         ".body-2-reg": {
-          fontFamily: theme("fontFamily.suite"),
+          fontFamily: theme("fontFamily.suit"),
           fontSize: "0.875rem",
           fontStyle: "normal",
           fontWeight: "400",
@@ -148,7 +148,7 @@ const config: Config = {
           letterSpacing: "-0.00088rem",
         },
         ".caption-bold": {
-          fontFamily: theme("fontFamily.suite"),
+          fontFamily: theme("fontFamily.suit"),
           fontSize: "0.75rem",
           fontStyle: "normal",
           fontWeight: "700",
@@ -156,7 +156,7 @@ const config: Config = {
           letterSpacing: "-0.00075rem",
         },
         ".caption-med": {
-          fontFamily: theme("fontFamily.suite"),
+          fontFamily: theme("fontFamily.suit"),
           fontSize: "0.75rem",
           fontStyle: "normal",
           fontWeight: "500",

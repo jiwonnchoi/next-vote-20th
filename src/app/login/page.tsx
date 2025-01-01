@@ -1,10 +1,10 @@
 import Header from "@components/common/Header";
 
-export default async function Signup() {
+export default async function Login() {
   return (
     <>
       <div className="flex w-full">
-        <Header tab={0} />
+        <Header tab={4} />
       </div>
     </>
   );
