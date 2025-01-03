@@ -1,7 +1,8 @@
 "use client";
-import { postSignin } from "@api/auth";
+import { postLogin } from "@api/auth";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Login() {
   const [inputInfo, setInputInfo] = useState({
@@ -16,7 +17,7 @@ export default function Login() {
   const handleLogin = async () => {
     if (isActive) {
       try {
-        const response = await postSignin(
+        const response = await postLogin(
           inputInfo.username,
           inputInfo.password
         );
@@ -59,11 +60,14 @@ export default function Login() {
         >
           로그인하기
         </button>
-        <div className="flex w-full justify-center Body_1_bold text-Grey-600 mt-[1.19rem] underline decoration-solid">
+        <Link
+          href="/signup"
+          className="flex w-full justify-center text-center Body_1_bold text-Grey-600 mt-[1.19rem] underline decoration-solid"
+        >
           아직 계정이 없나요?
           <br />
           회원가입하러 가기
-        </div>
+        </Link>
       </div>
     </>
   );

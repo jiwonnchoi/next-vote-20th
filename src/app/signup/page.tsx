@@ -76,12 +76,12 @@ export default function Signup() {
   return (
     <>
       <div className="w-full flex flex-col mt-[8.13rem] px-5">
-        <div>SIGNUP</div>
-        <hr />
+        <div className="Headline_5">SIGNUP</div>
+        <div className="w-full h-[0.0625rem] bg-black mt-[0.88rem] mb-9" />
 
         {/* 파트 선택 */}
-        <div>
-          <label>
+        <div className="flex w-full h-[3.1875rem] flex-row">
+          <label className="flex w-[50%] bg-Grey-900 border border-Grey-900 rounded-l-xl text-white justify-center items-center">
             <input
               type="radio"
               name="userPart"
@@ -90,7 +90,7 @@ export default function Signup() {
             />
             FRONT-END
           </label>
-          <label>
+          <label className="flex w-[50%] border border-Grey-900 rounded-r-xl  justify-center items-center">
             <input
               type="radio"
               name="userPart"
