@@ -15,7 +15,7 @@ export const postSignup = async (
       userTeam,
       userPart,
     });
-    //const { id } = response.data.result;
+
     return Promise.resolve(response);
   } catch (error) {
     console.error("회원가입 실패:", error);
@@ -29,7 +29,13 @@ export const postSignin = async (username: string, password: string) => {
       username,
       password,
     });
-    // const { grantType, access_token, refresh_token } = response.data.result;
+
+    const { accessToken } = response.data.result;
+    const expirationDate = new Date();
+    expirationDate.setTime(expirationDate.getTime() + 60 * 60 * 1000);
+
+    document.cookie = `accessToken=${accessToken}; expires=${expirationDate.toUTCString()};`;
+
     return Promise.resolve(response);
   } catch (error) {
     console.error("로그인 실패:", error);
