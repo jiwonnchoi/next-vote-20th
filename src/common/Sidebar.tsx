@@ -5,6 +5,13 @@ import { Close, Hamburger } from "src/assets/icons";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
+const menuItems = [
+  { href: "/voting", label: "VOTING" },
+  { href: "/members", label: "MEMBERS" },
+  { href: "/aboutus", label: "ABOUT US" },
+  { href: "/login", label: "LOGIN" },
+] as const;
+
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -34,32 +41,18 @@ export const Sidebar = () => {
           <Close width={36} height={36} />
         </button>
         <nav className="flex flex-col items-end absolute top-32 right-12 gap-8">
-          <Link
-            href="/voting"
-            className={`Headline_3 ${
-              pathname === "/voting" ? "text-Main_Blue" : "text-white"
-            } hover:text-Main_Blue transition-colors`}
-          >
-            VOTING
-          </Link>
-          <Link
-            href="/members"
-            className="Headline_3 text-white hover:text-Main_Blue transition-colors"
-          >
-            MEMBERS
-          </Link>
-          <Link
-            href="/aboutus"
-            className="Headline_3 text-white hover:text-Main_Blue transition-colors"
-          >
-            ABOUT US
-          </Link>
-          <Link
-            href="/login"
-            className="Headline_3 text-white hover:text-Main_Blue transition-colors"
-          >
-            LOGIN
-          </Link>
+          {menuItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`Headline_3 ${
+                pathname === item.href ? "text-Main_Blue" : "text-white"
+              } hover:text-Main_Blue transition-colors`}
+              onClick={() => setIsOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
       </div>
     </div>

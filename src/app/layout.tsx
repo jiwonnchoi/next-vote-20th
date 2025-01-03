@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Header } from "src/common/Header";
+import { Sidebar } from "src/common/Sidebar";
+import { Logo } from "src/assets/icons";
 
 export const metadata: Metadata = {
   title: "Next Vote 20th",
@@ -13,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        <Logo />
+        <Header />
+        <Sidebar />
+        {children}
+      </body>
     </html>
   );
 }
