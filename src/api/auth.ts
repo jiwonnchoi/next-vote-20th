@@ -38,6 +38,7 @@ export const postLogin = async (username: string, password: string) => {
 
     document.cookie = `accessToken=${accessToken}; expires=${expirationDate.toUTCString()};`;
 
+    localStorage.setItem("userId", response.data.result.userId);
     localStorage.setItem("userPart", response.data.result.userPart);
     localStorage.setItem("isVotingLeader", response.data.result.isVotingLeader);
     localStorage.setItem("isVotingTeam", response.data.result.isVotingTeam);

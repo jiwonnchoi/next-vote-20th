@@ -12,7 +12,7 @@ export const postLeaderVote = async (
   leaderCandidateId: number
 ): Promise<VoteResponse> => {
   try {
-    return await http.post("/api/v1/vote/leader", {
+    return await http.post("/api/v1/leader", {
       user_id: userId,
       leader_candidate_id: leaderCandidateId,
     });
