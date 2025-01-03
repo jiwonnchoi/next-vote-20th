@@ -6,6 +6,11 @@ export const http = axios.create({
 });
 
 export const getCookie = (name: string): string | null => {
+  if (typeof window === "undefined") {
+    // 서버 컴포넌트에서는 null 반환
+    return null;
+  }
+
   const cookies = document.cookie.split(";");
   for (let cookie of cookies) {
     cookie = cookie.trim();
