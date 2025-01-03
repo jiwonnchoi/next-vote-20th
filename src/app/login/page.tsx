@@ -39,20 +39,27 @@ export default function Login() {
   return (
     <>
       <div className="w-full flex flex-col mt-[8.13rem] px-5">
-        <div>LOGIN</div>
-        <hr />
+        <div className="Headline_5">LOGIN</div>
+        <div className="w-full h-[0.0625rem] bg-black mt-[0.88rem] mb-9" />
         <input
+          className="w-full flex p-3 items-center border border-black Subhead_med"
           name="username"
           placeholder="아이디를 입력해 주세요"
           onChange={handleInputChange}
         />
         <input
+          className="w-full flex p-3 items-center border border-black Subhead_med mt-[1.19rem]"
           name="password"
           placeholder="비밀번호를 입력해 주세요"
           onChange={handleInputChange}
         />
-        <button onClick={handleLogin}>로그인하기</button>
-        <div>
+        <button
+          className="flex w-full px-3 py-4 justify-center items-center bg-Grey-900 text-white Headline_4 mt-9"
+          onClick={handleLogin}
+        >
+          로그인하기
+        </button>
+        <div className="flex w-full justify-center Body_1_bold text-Grey-600 mt-[1.19rem] underline decoration-solid">
           아직 계정이 없나요?
           <br />
           회원가입하러 가기
