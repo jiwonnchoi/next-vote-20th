@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { getCookie, deleteCookie } from "@api/http";
 
-const menuItems = [
+const MENU_ITEMS = [
   { href: "/voting", label: "VOTING" },
   { href: "/members", label: "MEMBERS" },
   { href: "/aboutus", label: "ABOUT US" },
@@ -49,7 +49,7 @@ export const Sidebar = () => {
           <Close width={36} height={36} />
         </button>
         <nav className="flex flex-col items-end absolute top-32 right-12 gap-8">
-          {menuItems.map((item) => (
+          {MENU_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
