@@ -1,3 +1,5 @@
+"use client";
+
 import { http } from "./http";
 
 export const postSignup = async (
