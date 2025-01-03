@@ -208,6 +208,7 @@ export default function Signup() {
             <input
               className="flex-1 min-w-64 Body_1_med placeholder-Grey-600 border-0 border-b border-black focus:outline-none p-3"
               name="password"
+              type="password"
               placeholder="비밀번호를 입력해 주세요"
               onChange={handleInputChange}
             />
@@ -220,6 +221,7 @@ export default function Signup() {
             <input
               className="flex-1 min-w-64 Body_1_med placeholder-Grey-600 border-0 border-b border-black focus:outline-none p-3"
               name="passwordRe"
+              type="password"
               placeholder="비밀번호를 다시 입력해 주세요"
               onChange={handleInputChange}
             />

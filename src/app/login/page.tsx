@@ -86,6 +86,7 @@ export default function Login() {
         <input
           className="w-full flex p-3 items-center border border-black Subhead_med"
           name="password"
+          type="password"
           placeholder="비밀번호를 입력해 주세요"
           onChange={handleInputChange}
         />
