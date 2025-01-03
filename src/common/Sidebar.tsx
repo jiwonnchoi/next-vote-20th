@@ -2,19 +2,26 @@
 
 import { useState } from "react";
 import { Close, Hamburger } from "src/assets/icons";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import { getCookie, deleteCookie } from "@api/http";
 
 const menuItems = [
   { href: "/voting", label: "VOTING" },
   { href: "/members", label: "MEMBERS" },
   { href: "/aboutus", label: "ABOUT US" },
-  { href: "/login", label: "LOGIN" },
 ] as const;
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+
+  const isLogin = getCookie("accessToken");
+  const handleLogout = () => {
+    deleteCookie("accessToken");
+    router.push("/");
+  };
 
   return (
     <div className="pc:hidden">
@@ -53,6 +60,27 @@ export const Sidebar = () => {
               {item.label}
             </Link>
           ))}
+          {isLogin ? (
+            <button
+              className="Headline_3 text-white hover:text-Main_Blue transition-colors"
+              onClick={() => {
+                setIsOpen(false);
+                handleLogout();
+              }}
+            >
+              LOGOUT
+            </button>
+          ) : (
+            <Link
+              href="/login"
+              className={`Headline_3 ${
+                pathname === "/login" ? "text-Main_Blue" : "text-white"
+              } hover:text-Main_Blue transition-colors`}
+              onClick={() => setIsOpen(false)}
+            >
+              LOGIN
+            </Link>
+          )}
         </nav>
       </div>
     </div>
