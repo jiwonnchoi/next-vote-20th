@@ -23,7 +23,7 @@ export const postSignup = async (
   }
 };
 
-export const postSignin = async (username: string, password: string) => {
+export const postLogin = async (username: string, password: string) => {
   try {
     const response = await http.post("/api/v1/auth/sign-in", {
       username,
@@ -35,6 +35,10 @@ export const postSignin = async (username: string, password: string) => {
     expirationDate.setTime(expirationDate.getTime() + 60 * 60 * 1000);
 
     document.cookie = `accessToken=${accessToken}; expires=${expirationDate.toUTCString()};`;
+
+    localStorage.setItem("userPart", response.data.result.userPart);
+    localStorage.setItem("isVotingLeader", response.data.result.isVotingLeader);
+    localStorage.setItem("isVotingTeam", response.data.result.isVotingTeam);
 
     return Promise.resolve(response);
   } catch (error) {
