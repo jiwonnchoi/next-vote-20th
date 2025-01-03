@@ -5,6 +5,19 @@ export const http = axios.create({
   withCredentials: true,
 });
 
+export const authHttp = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+  withCredentials: true,
+});
+
+authHttp.interceptors.request.use((config) => {
+  const token = getCookie("accessToken");
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
 export const getCookie = (name: string): string | null => {
   if (typeof window === "undefined") {
     // 서버 컴포넌트에서는 null 반환

@@ -5,11 +5,13 @@ import { LeaderBf, LeaderAf } from "src/assets/icons";
 import { BE, FE } from "src/constants/memberData";
 import { postLeaderVote } from "src/api/vote";
 import { Members } from "src/types/members";
+import { Result } from "@components/Result";
 
 export default function LeaderVoting() {
   const [selectedName, setSelectedName] = useState<string | null>(null);
   const userPart = localStorage.getItem("userPart");
   const members: Members = userPart === "FE" ? FE.members : BE.members;
+  const hasVoted = localStorage.getItem("isVotingLeader") === "true";
 
   const handleVote = async () => {
     if (!selectedName) return;
@@ -24,6 +26,10 @@ export default function LeaderVoting() {
       console.error("투표 실패:", error);
     }
   };
+
+  if (hasVoted) {
+    return <Result type="leader" />;
+  }
 
   return (
     <>

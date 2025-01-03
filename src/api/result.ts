@@ -16,7 +16,7 @@ interface TeamResult {
     team_name: string;
     count: number;
     voteCount: number;
-  };
+  }[];
 }
 
 export const getLeaderResult = async (): Promise<LeaderResult[]> => {
@@ -29,7 +29,7 @@ export const getLeaderResult = async (): Promise<LeaderResult[]> => {
   }
 };
 
-export const getTeamResult = async (): Promise<TeamResult> => {
+export const getTeamResult = async (): Promise<TeamResult[]> => {
   try {
     const response = await http.get("/api/v1/team");
     return response.data.result;
