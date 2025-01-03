@@ -20,3 +20,14 @@ export const teamData = {
     BE: ["남승현", "문서영"],
   },
 };
+
+export const partData = {
+  "FRONT - END": {
+    FE: ["권혜인", "이가빈"],
+    BE: ["이한슬", "최서지"],
+  },
+  "BACK - END": {
+    FE: ["김류원", "지민재"],
+    BE: ["나혜인", "유지민"],
+  },
+};
