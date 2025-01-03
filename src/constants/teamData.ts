@@ -1,15 +1,11 @@
 export const teamData = {
-  "Angel Bridge": {
-    FE: ["권혜인", "이가빈"],
-    BE: ["이한슬", "최서지"],
-  },
-  "Cake Way": {
-    FE: ["김류원", "지민재"],
-    BE: ["나혜인", "유지민"],
-  },
   "Cupfee Deal": {
     FE: ["송유선", "최지원"],
     BE: ["임가현", "황서아"],
+  },
+  "Angel Bridge": {
+    FE: ["권혜인", "이가빈"],
+    BE: ["이한슬", "최서지"],
   },
   Musai: {
     FE: ["박지수", "윤영준"],
@@ -19,14 +15,7 @@ export const teamData = {
     FE: ["강다혜", "이희원"],
     BE: ["남승현", "문서영"],
   },
-};
-
-export const partData = {
-  "FRONT - END": {
-    FE: ["권혜인", "이가빈"],
-    BE: ["이한슬", "최서지"],
-  },
-  "BACK - END": {
+  "Cake Way": {
     FE: ["김류원", "지민재"],
     BE: ["나혜인", "유지민"],
   },

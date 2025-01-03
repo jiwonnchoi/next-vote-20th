@@ -85,7 +85,7 @@ export const BE = {
     },
     유지민: {
       univ: "EWHA. W. UNIV",
-      major: "Elementary Education",
+      major: "Computer Science",
     },
     이채원: {
       univ: "CEOS UNIV",
