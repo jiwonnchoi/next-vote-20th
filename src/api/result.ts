@@ -1,4 +1,4 @@
-import { http } from "./http";
+import { authHttp } from "./http";
 
 interface LeaderResult {
   part: string;
@@ -21,7 +21,7 @@ interface TeamResult {
 
 export const getLeaderResult = async (): Promise<LeaderResult[]> => {
   try {
-    const response = await http.get("/api/v1/leader");
+    const response = await authHttp.get("/api/v1/leader");
     return response.data.result;
   } catch (error) {
     console.error("리더 투표 결과 조회 실패: ", error);
@@ -31,10 +31,10 @@ export const getLeaderResult = async (): Promise<LeaderResult[]> => {
 
 export const getTeamResult = async (): Promise<TeamResult[]> => {
   try {
-    const response = await http.get("/api/v1/team");
+    const response = await authHttp.get("/api/v1/team");
     return response.data.result;
   } catch (error) {
-    console.error("리더 투표 결과 조회 실패: ", error);
+    console.error("데모데이 투표 결과 조회 실패: ", error);
     throw error;
   }
 };

@@ -1,4 +1,4 @@
-import { http } from "./http";
+import { authHttp } from "./http";
 
 interface VoteResponse {
   timestamp: string;
@@ -12,7 +12,7 @@ export const postLeaderVote = async (
   leaderCandidateId: number
 ): Promise<VoteResponse> => {
   try {
-    return await http.post("/api/v1/leader", {
+    return await authHttp.post("/api/v1/leader", {
       user_id: userId,
       leader_candidate_id: leaderCandidateId,
     });
@@ -27,7 +27,7 @@ export const postTeamVote = async (
   teamCandidateId: number
 ): Promise<VoteResponse> => {
   try {
-    return await http.post("/api/v1/vote/team", {
+    return await authHttp.post("/api/v1/team", {
       user_id: userId,
       team_candidate_id: teamCandidateId,
     });
