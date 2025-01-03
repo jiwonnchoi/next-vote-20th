@@ -46,7 +46,7 @@ export default function LeaderVoting() {
         {Object.keys(members).map((name) => (
           <div key={name} className="relative group">
             <div
-              className={`absolute inset-0 rounded-full bg-[#5DA9FF] blur-md transition-opacity 
+              className={`w-14 h-14 absolute -top-5 -left-1 rounded-full bg-[#AAD2FF] blur-md transition-opacity 
             ${
               selectedName === name
                 ? "opacity-100"
