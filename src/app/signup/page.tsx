@@ -28,6 +28,17 @@ export default function Signup() {
 
   const router = useRouter();
   const transformedInfo = useTransformInfo(inputInfo);
+  const isPasswordConfirmed = inputInfo.password === inputInfo.passwordRe;
+
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
+  const handleCheckEmail = (email: string) => {
+    if (pattern.test(email) === false) {
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   const isActive = () => {
     const requiredFields = [
@@ -41,7 +52,7 @@ export default function Signup() {
     ];
     return (
       requiredFields.every((field) => field.trim() !== "") &&
-      inputInfo.password === inputInfo.passwordRe
+      isPasswordConfirmed
     );
   };
 
@@ -67,6 +78,11 @@ export default function Signup() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
+
+    if (name === "email") {
+      setIsEmailValid(handleCheckEmail(value)); // 이메일 유효성 검사
+    }
+
     setInputInfo((prev) => ({
       ...prev,
       [name]: value,
@@ -75,11 +91,11 @@ export default function Signup() {
 
   return (
     <>
-      <div className="w-full flex flex-col mt-[8.13rem] px-5">
+      <div className="w-full flex flex-col mt-[8.13rem] px-5 overflow-hidden">
         <div className="Headline_5">SIGNUP</div>
         <div className="w-full h-[0.0625rem] bg-black mt-[0.88rem] mb-9" />
 
-        <div className="flex flex-col gap-[1.88rem]">
+        <div className="flex flex-col">
           {/* 파트 선택 */}
           <div className="flex w-full h-[3.1875rem] flex-row">
             <label
@@ -116,7 +132,7 @@ export default function Signup() {
             </label>
           </div>
 
-          <div className="flex flex-row w-full gap-4">
+          <div className="flex flex-row w-full gap-4 mt-[1.88rem]">
             {/* 팀 선택 */}
             <select
               name="userTeam"
@@ -158,7 +174,7 @@ export default function Signup() {
           </div>
 
           {/* 입력 필드 */}
-          <div className="flex flex-row w-full justify-between items-center">
+          <div className="flex flex-row w-full justify-between items-center mt-[1.88rem]">
             <span className="Subhead_2_bold flex w-24">아이디</span>
             <input
               className="flex-1 min-w-64 Body_1_med placeholder-Grey-600 border-0 border-b border-black focus:outline-none p-3"
@@ -168,7 +184,7 @@ export default function Signup() {
             />
           </div>
 
-          <div className="flex flex-row w-full justify-between items-center">
+          <div className="flex flex-row w-full justify-between items-center mt-[1.88rem]">
             <span className="Subhead_2_bold flex w-24">이메일</span>
             <input
               className="flex-1 min-w-64 Body_1_med placeholder-Grey-600 border-0 border-b border-black focus:outline-none p-3"
@@ -177,6 +193,15 @@ export default function Signup() {
               onChange={handleInputChange}
             />
           </div>
+          {inputInfo.email && !isEmailValid ? (
+            <div className="flex w-full Body_2_bold text-Red py-2 px-1 ml-24">
+              이메일 형식이 올바르지 않습니다
+            </div>
+          ) : (
+            <div className="flex w-full Body_2_bold py-2 px-1 ml-24">
+              &nbsp;
+            </div>
+          )}
 
           <div className="flex flex-row w-full justify-between items-center">
             <span className="Subhead_2_bold flex w-24">비밀번호</span>
@@ -188,7 +213,7 @@ export default function Signup() {
             />
           </div>
 
-          <div className="flex flex-row w-full justify-between items-center">
+          <div className="flex flex-row w-full justify-between items-center mt-[1.88rem]">
             <span className="Subhead_2_bold flex w-20 mr-4">
               비밀번호 재입력
             </span>
@@ -200,9 +225,15 @@ export default function Signup() {
             />
           </div>
         </div>
-
+        {inputInfo.passwordRe && !isPasswordConfirmed ? (
+          <div className="flex w-full Body_2_bold text-Red py-2 px-1 ml-24">
+            비밀번호가 일치하지 않습니다
+          </div>
+        ) : (
+          <div className="flex w-full Body_2_bold py-2 px-1 ml-24">&nbsp;</div>
+        )}
         <button
-          className="flex w-full px-3 py-4 justify-center items-center bg-Grey-900 text-white Headline_4 mt-12"
+          className="flex w-full px-3 py-4 justify-center items-center bg-Grey-900 text-white Headline_4 mt-[0.69rem]"
           onClick={handleSignup}
         >
           회원가입하기
