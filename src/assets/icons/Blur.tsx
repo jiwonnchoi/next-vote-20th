@@ -1,10 +1,21 @@
 import * as React from "react";
 import type { SVGProps } from "react";
-const SvgBlur = (props: SVGProps<SVGSVGElement>) => (
+
+interface BlurProps extends SVGProps<SVGSVGElement> {
+  position: { x: number; y: number };
+}
+
+const SvgBlur = ({ position, ...props }: BlurProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 97 97"
+    style={{
+      position: "fixed",
+      transform: `translate(${position.x - 48.5}px, ${position.y - 48.5}px)`,
+      transition: "transform 0.3s ease-out",
+      pointerEvents: "none",
+    }}
     {...props}
   >
     <g filter="url(#Blur_svg__a)">
@@ -30,4 +41,5 @@ const SvgBlur = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 );
+
 export default SvgBlur;
