@@ -20,6 +20,7 @@ export const Sidebar = () => {
   const isLogin = getCookie("accessToken");
   const handleLogout = () => {
     deleteCookie("accessToken");
+    window.localStorage.clear();
     router.push("/");
   };
 
