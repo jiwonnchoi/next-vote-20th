@@ -56,6 +56,7 @@ export const Sidebar = () => {
               className={`Headline_3 ${
                 pathname === item.href ? "text-Main_Blue" : "text-white"
               } hover:text-Main_Blue transition-colors`}
+              onClick={() => setIsOpen(false)}
             >
               {item.label}
             </Link>

@@ -4,6 +4,10 @@ export interface Member {
   major: string;
 }
 
+export interface Members {
+  [key: string]: Member;
+}
+
 export interface Executive {
   univ: string;
   major: string;
