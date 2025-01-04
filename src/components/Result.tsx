@@ -16,7 +16,10 @@ interface ResultItem {
 
 export const Result = ({ type }: ResultProps) => {
   const [results, setResults] = useState<ResultItem[]>([]);
-  const userPart = localStorage.getItem("userPart");
+  const [userPart, setUserPart] = useState("");
+  useEffect(() => {
+    setUserPart(localStorage.getItem("userPart") || "");
+  }, []);
 
   // 굳이 필요하지 않은 부분이긴 한데... 팀이름... 백에서 주는 형식 바꾸고 싶어서...
   const changeTeamName = (apiTeamName: string) => {

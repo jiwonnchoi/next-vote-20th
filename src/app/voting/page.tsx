@@ -1,11 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { LeaderBf } from "src/assets/icons";
 import { DemoBf } from "src/assets/icons";
 
 export default function Voting() {
-  const userPart = localStorage.getItem("userPart");
+  const [userPart, setUserPart] = useState("");
+  useEffect(() => {
+    setUserPart(localStorage.getItem("userPart") || "");
+  }, []);
 
   return (
     <>
