@@ -29,7 +29,7 @@ export const getLeaderResult = async (): Promise<LeaderResult[]> => {
   }
 };
 
-export const getTeamResult = async (): Promise<TeamResult[]> => {
+export const getTeamResult = async (): Promise<TeamResult> => {
   try {
     const response = await authHttp.get("/api/v1/team");
     return response.data.result;
