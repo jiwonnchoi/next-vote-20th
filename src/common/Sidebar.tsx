@@ -14,20 +14,15 @@ const MENU_ITEMS = [
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
   const [currentPath, setCurrentPath] = useState("");
   const router = useRouter();
 
-  useEffect(() => {
-    const token = getCookie("accessToken");
-    setIsLogin(!!token);
-
-    setCurrentPath(window.location.pathname);
-  }, []);
+  const isLogin = !!getCookie("accessToken");
 
   const handleLogout = () => {
     deleteCookie("accessToken");
     window.localStorage.clear();
+    setIsOpen(false);
     router.push("/");
   };
 
@@ -70,7 +65,6 @@ export const Sidebar = () => {
             <button
               className="Headline_3 text-white hover:text-Main_Blue transition-colors"
               onClick={() => {
-                setIsOpen(false);
                 handleLogout();
               }}
             >
