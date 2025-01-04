@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <div className="relative w-screen h-screen overflow-hidden">
       <OnboardingStars className="absolute w-[16.75rem] top-[12.13rem] right-[-1.3rem] md:w-[44.3125rem] md:right-[-6rem]" />
-      <div className="Headline_1 absolute top-[10.75rem] left-[5.06rem] md:right-auto md:text-7xl md:font-black">
+      <div className="Headline_1 absolute top-[10.75rem] right-[7.94rem] md:left-auto md:right-[calc(6rem+15%)] md:mt-20 md:text-7xl md:font-black">
         <span className="block md:inline">2024</span>
         <span className="block md:inline">&nbsp;세오스 어워즈</span>
       </div>
