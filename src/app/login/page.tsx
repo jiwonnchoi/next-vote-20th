@@ -1,7 +1,6 @@
 "use client";
 import { postLogin } from "@api/auth";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import axios from "axios";
 
@@ -11,7 +10,6 @@ export default function Login() {
     password: "",
   });
 
-  const router = useRouter();
   const isActive =
     inputInfo.username.trim() !== "" && inputInfo.password.trim() !== "";
 
@@ -22,8 +20,7 @@ export default function Login() {
           inputInfo.username,
           inputInfo.password
         );
-        console.log(response.data);
-        router.push("/");
+        window.location.replace("/");
       } catch (error) {
         if (axios.isAxiosError(error)) {
           const { response } = error;

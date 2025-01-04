@@ -10,7 +10,7 @@ import { Result } from "@components/Result";
 export default function LeaderVoting() {
   const [selectedName, setSelectedName] = useState<string | null>(null);
   const [userPart, setUserPart] = useState("");
-  const [hasVoted, setHasVoted] = useState(false);
+  const [hasVoted, setHasVoted] = useState(true);
 
   const members: Members = userPart === "FE" ? FE.members : BE.members;
 
