@@ -151,42 +151,52 @@ export const BE = {
 export const PM = {
   members: {
     구연성: {
+      id: 21,
       univ: "CEOS UNIV",
       major: "Business Administration",
     },
     김윤서: {
+      id: 22,
       univ: "CEOS UNIV",
       major: "Korean Language",
     },
     김현승: {
+      id: 23,
       univ: "CEOS UNIV",
       major: "Computer Science",
     },
     서다원: {
+      id: 24,
       univ: "CEOS UNIV",
       major: "Biotechnology",
     },
     손하늘: {
+      id: 25,
       univ: "CEOS UNIV",
       major: "Computer Science",
     },
     이채원: {
+      id: 26,
       univ: "CEOS UNIV",
       major: "Communication & Media",
     },
     정대철: {
+      id: 27,
       univ: "CEOS UNIV",
       major: "Business Administration",
     },
     조은호: {
+      id: 28,
       univ: "CEOS UNIV",
       major: "Industrial Engineering",
     },
     주세연: {
+      id: 29,
       univ: "CEOS UNIV",
       major: "Business Administration",
     },
     현종혁: {
+      id: 30,
       univ: "CEOS UNIV",
       major: "Computer Science",
     },
@@ -230,42 +240,52 @@ export const PM = {
 export const Design = {
   members: {
     김수연: {
+      id: 31,
       univ: "CEOS UNIV",
       major: "Art & Design",
     },
     김태양: {
+      id: 32,
       univ: "CEOS UNIV",
       major: "Visual Communication Design",
     },
     민솔: {
+      id: 33,
       univ: "CEOS UNIV",
       major: "Visual Communication Design",
     },
     박재원: {
+      id: 34,
       univ: "CEOS UNIV",
       major: "Ceramics & Glass",
     },
     박하경: {
+      id: 35,
       univ: "CEOS UNIV",
       major: "Visual Communication Design",
     },
     윤유빈: {
+      id: 36,
       univ: "CEOS UNIV",
       major: "Visual Communication Design",
     },
     이채린: {
+      id: 37,
       univ: "CEOS UNIV",
       major: "Art & Design",
     },
     장윤정: {
+      id: 38,
       univ: "CEOS UNIV",
       major: "Industrial Design",
     },
     진나경: {
+      id: 39,
       univ: "CEOS UNIV",
       major: "Visual Communication Design",
     },
     최선우: {
+      id: 40,
       univ: "CEOS UNIV",
       major: "Visual Communication Design",
     },
