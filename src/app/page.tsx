@@ -7,13 +7,16 @@ import { getCookie } from "@api/http";
 
 export default function Home() {
   const [isComplete, setIsComplete] = useState(false);
+  const isLoggedIn = getCookie("accessToken");
 
   useEffect(() => {
-    const isLoggedIn = getCookie("accessToken");
     const hasVotedTeam = localStorage.getItem("isVotingTeam");
     const hasVotedLeader = localStorage.getItem("isVotingLeader");
-    setIsComplete(!!(isLoggedIn && hasVotedTeam && hasVotedLeader));
-  }, []);
+    const isTeamVoted = hasVotedTeam === "true";
+    const isLeaderVoted = hasVotedLeader === "true";
+
+    setIsComplete(!!(isLoggedIn && isTeamVoted && isLeaderVoted));
+  }, [isLoggedIn]);
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">

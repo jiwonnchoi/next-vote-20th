@@ -28,6 +28,7 @@ export const Sidebar = () => {
     setIsLogin(false);
     setIsOpen(false);
     router.push("/");
+    window.location.reload();
   };
 
   return (
