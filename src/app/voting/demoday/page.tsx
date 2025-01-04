@@ -39,7 +39,7 @@ export default function TeamVoting() {
 
   return (
     <>
-      <div className="h-[11.3rem] ml-[13%]">
+      <div className="h-[11.3rem] ml-[13%] scale-100 pc:scale-[1.8] pc:self-center pc:mr-[55%] pc:mt-20">
         <div className="flex flex-col gap-8 w-fit ">
           {Object.keys(teams).map((team) => (
             <div key={team} className="relative group">
@@ -62,7 +62,7 @@ export default function TeamVoting() {
         </div>
       </div>
 
-      <div className="self-end mr-[10%] relative w-[12.6rem]">
+      <div className="self-end mr-[10%] relative w-[12.6rem] scale-100 pc:scale-[1.8] pc:self-center pc:ml-[40%] pc:mt-20 ">
         {selectedTeam ? <DemoAf /> : <DemoBf />}
         <span className="Body_2_med absolute top-[7.1rem] right-[4.56rem]">
           DEMO - DAY

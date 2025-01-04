@@ -40,7 +40,7 @@ export default function LeaderVoting() {
 
   return (
     <>
-      <div className="relative w-[17.5rem] ml-[8%] mb-4">
+      <div className="relative w-[17.5rem] ml-[8%] mb-4 scale-100 pc:scale-[1.8] pc:self-center pc:mr-[35%] pc:mt-20">
         {selectedName ? <LeaderAf /> : <LeaderBf />}
         <span className="Body_2_med absolute top-[4.31rem] left-[4.63rem]">
           {userPart} - LEADER
@@ -55,7 +55,7 @@ export default function LeaderVoting() {
         )}
       </div>
 
-      <div className="self-end grid grid-cols-2 gap-x-4 gap-y-8 mr-[13%]">
+      <div className="self-end grid grid-cols-2 gap-x-4 gap-y-8 mr-[13%] scale-100 pc:scale-[1.8] pc:self-center pc:ml-[55%] pc:mt-20">
         {Object.keys(members).map((name) => (
           <div key={name} className="relative group">
             <div
