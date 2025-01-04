@@ -21,3 +21,10 @@ export interface PartMembers {
     [key: string]: Executive;
   };
 }
+
+export interface MemberDataMap {
+  [key: string]: {
+    members: { [key: string]: Member };
+    executives: { [key: string]: Executive };
+  };
+}
