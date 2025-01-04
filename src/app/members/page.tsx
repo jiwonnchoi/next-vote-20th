@@ -46,7 +46,7 @@ export default function Members() {
         </div>
 
         {/* 그리드 */}
-        <div className="flex flex-col w-full mt-[2.37rem] ">
+        <div className="flex flex-col mt-[2.37rem] ">
           <div className="Headline_1 mb-[1.06rem]">20th MEMBERS</div>
           <div className="grid grid-cols-2 gap-[0.88rem]">
             {Object.entries(memberData).map(
@@ -54,7 +54,6 @@ export default function Members() {
                 <MemberCard
                   key={details.id || name}
                   name={name}
-                  univ={details.univ}
                   major={details.major}
                 />
               )
@@ -64,12 +63,7 @@ export default function Members() {
           <div className="grid grid-cols-2 gap-[0.88rem] mb-[7.69rem]">
             {Object.entries(executiveData).map(
               ([name, details]: [string, Executive]) => (
-                <MemberCard
-                  key={name}
-                  name={name}
-                  univ={details.univ}
-                  major={details.major}
-                />
+                <MemberCard key={name} name={name} major={details.major} />
               )
             )}
           </div>
