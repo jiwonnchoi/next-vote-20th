@@ -65,7 +65,7 @@ export const Result = ({ type }: ResultProps) => {
       <div
         className={`Body_${
           type === "leader" ? 1 : 2
-        }_bold relative w-[23rem] mr-7 self-center`}
+        }_bold relative w-[23rem] mr-7 self-center scale-100 pc:scale-150 pc:mt-16`}
       >
         <ResultM />
         <div className="absolute w-32 top-[4.85rem] left-[3.7rem] text-center">
@@ -78,7 +78,7 @@ export const Result = ({ type }: ResultProps) => {
           {results[2]?.name} | {results[2]?.voteCount}표
         </div>
       </div>
-      <div className="flex flex-col self-center mt-14 ml-40 pb-20 gap-5">
+      <div className="flex flex-col self-center mt-14 ml-40 pb-20 gap-5 scale-100 pc:scale-150 pc:mt-72 pc:ml-96">
         {results.slice(3).map((result, index) => (
           <span key={index} className="Body_2_bold">
             {index + 4}위. {result.name} | {result.voteCount}표
