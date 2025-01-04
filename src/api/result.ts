@@ -34,7 +34,7 @@ export const getTeamResult = async (): Promise<TeamResult[]> => {
     const response = await authHttp.get("/api/v1/team");
     return response.data.result;
   } catch (error) {
-    console.error("데모데이 투표 결과 조회 실패: ", error);
+    console.error("팀 투표 결과 조회 실패: ", error);
     throw error;
   }
 };

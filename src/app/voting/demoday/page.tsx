@@ -5,10 +5,12 @@ import { DemoBf, DemoAf } from "src/assets/icons";
 import { teamData } from "src/constants/teamData";
 import { postTeamVote } from "@api/vote";
 import { Teams } from "src/types/teams";
+import { Result } from "@components/Result";
 
 export default function TeamVoting() {
   const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
   const teams: Teams = teamData;
+  const hasVoted = localStorage.getItem("isVotingTeam") === "true";
 
   const handleVote = async () => {
     if (!selectedTeam) return;
@@ -19,10 +21,15 @@ export default function TeamVoting() {
     try {
       await postTeamVote(Number(userId), teamId);
       localStorage.setItem("isVotingTeam", "true");
+      window.location.reload();
     } catch (error) {
       console.error("투표 실패: ", error);
     }
   };
+
+  if (hasVoted) {
+    return <Result type="team" />;
+  }
 
   return (
     <>

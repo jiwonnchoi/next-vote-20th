@@ -22,6 +22,7 @@ export default function LeaderVoting() {
     try {
       await postLeaderVote(Number(userId), memberId);
       localStorage.setItem("isVotingLeader", "true");
+      window.location.reload();
     } catch (error) {
       console.error("투표 실패:", error);
     }
