@@ -4,19 +4,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { teamData } from "src/constants/teamData";
 import { useTransformInfo } from "src/hooks/useTransformInfo";
-
-type TeamName = keyof typeof teamData;
+import Dropdown from "@components/Dropdown";
+import { InputInfo } from "src/types/teams";
 
 export default function Signup() {
-  const [inputInfo, setInputInfo] = useState<{
-    username: string;
-    email: string;
-    password: string;
-    passwordRe: string;
-    userTeam: TeamName | "";
-    userPart: "FE" | "BE" | "";
-    member: string;
-  }>({
+  const [inputInfo, setInputInfo] = useState<InputInfo>({
     username: "",
     email: "",
     password: "",
@@ -83,10 +75,30 @@ export default function Signup() {
       setIsEmailValid(handleCheckEmail(value)); // 이메일 유효성 검사
     }
 
-    setInputInfo((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setInputInfo((prev) => {
+      // 파트가 바뀌면 이름 초기화
+      if (name === "userPart") {
+        return {
+          ...prev,
+          userPart: value as InputInfo["userPart"],
+          member: "",
+        };
+      }
+
+      // 팀이 바뀌면 이름 초기화
+      if (name === "userTeam") {
+        return {
+          ...prev,
+          userTeam: value as InputInfo["userTeam"],
+          member: "",
+        };
+      }
+
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
   };
 
   return (
@@ -134,43 +146,27 @@ export default function Signup() {
 
           <div className="flex flex-row w-full gap-4 mt-[1.88rem]">
             {/* 팀 선택 */}
-            <select
-              name="userTeam"
-              className="w-[50%] Body_1_med border-0 border-b border-black focus:outline-none py-3 px-1.5"
+            <Dropdown
+              options={Object.keys(teamData)}
               value={inputInfo.userTeam}
+              placeholder="팀을 선택해 주세요"
+              name="userTeam"
               onChange={handleInputChange}
-            >
-              <option value="" className="text-Grey-600 ">
-                팀을 선택해 주세요
-              </option>
-              {Object.keys(teamData).map((team) => (
-                <option key={team} value={team}>
-                  {team}
-                </option>
-              ))}
-            </select>
+            />
 
             {/* 이름 선택 */}
-            <select
-              name="member"
-              className="w-[50%] Body_1_med border-0 border-b border-black focus:outline-none py-3 px-1.5"
+            <Dropdown
+              options={
+                inputInfo.userTeam && inputInfo.userPart
+                  ? teamData[inputInfo.userTeam][inputInfo.userPart] || []
+                  : []
+              }
               value={inputInfo.member}
+              placeholder="이름을 선택해 주세요"
+              name="member"
               onChange={handleInputChange}
-              disabled={!inputInfo.userTeam}
-            >
-              <option value="" className="text-Grey-600">
-                이름을 선택해 주세요
-              </option>
-              {inputInfo.userTeam &&
-                inputInfo.userPart &&
-                teamData[inputInfo.userTeam][inputInfo.userPart]?.map(
-                  (name) => (
-                    <option key={name} value={name}>
-                      {name}
-                    </option>
-                  )
-                )}
-            </select>
+              disabled={!inputInfo.userTeam || !inputInfo.userPart}
+            />
           </div>
 
           {/* 입력 필드 */}
@@ -235,7 +231,7 @@ export default function Signup() {
           <div className="flex w-full Body_2_bold py-2 px-1 ml-24">&nbsp;</div>
         )}
         <button
-          className="flex w-full px-3 py-4 justify-center items-center bg-Grey-900 text-white Headline_4 mt-[0.69rem]"
+          className="flex w-full px-3 py-4 justify-center items-center bg-Grey-900 text-white Headline_4 mt-[0.69rem] mb-[7.06rem]"
           onClick={handleSignup}
         >
           회원가입하기
