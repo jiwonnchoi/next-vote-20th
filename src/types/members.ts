@@ -1,6 +1,5 @@
 export interface Member {
   id: number;
-  univ: string;
   major: string;
 }
 
@@ -9,7 +8,6 @@ export interface Members {
 }
 
 export interface Executive {
-  univ: string;
   major: string;
 }
 

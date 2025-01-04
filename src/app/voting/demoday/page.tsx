@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DemoBf, DemoAf } from "src/assets/icons";
 import { teamData } from "src/constants/teamData";
 import { postTeamVote } from "@api/vote";
@@ -10,7 +10,12 @@ import { Result } from "@components/Result";
 export default function TeamVoting() {
   const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
   const teams: Teams = teamData;
-  const hasVoted = localStorage.getItem("isVotingTeam") === "true";
+  const [hasVoted, setHasVoted] = useState(false);
+
+  useEffect(() => {
+    const voted = localStorage.getItem("isVotingTeam") === "true";
+    setHasVoted(voted);
+  }, []);
 
   const handleVote = async () => {
     if (!selectedTeam) return;
@@ -21,6 +26,7 @@ export default function TeamVoting() {
     try {
       await postTeamVote(Number(userId), teamId);
       localStorage.setItem("isVotingTeam", "true");
+      setHasVoted(true);
       window.location.reload();
     } catch (error) {
       console.error("투표 실패: ", error);

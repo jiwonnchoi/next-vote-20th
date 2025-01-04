@@ -46,30 +46,24 @@ export default function Members() {
         </div>
 
         {/* 그리드 */}
-        <div className="flex flex-col w-full mt-[2.37rem] ">
+        <div className="flex flex-col w-fit mt-12 self-center ">
           <div className="Headline_1 mb-[1.06rem]">20th MEMBERS</div>
-          <div className="grid grid-cols-2 gap-[0.88rem]">
+          <div className="grid grid-cols-[repeat(2,minmax(0,1fr))] gap-[0.88rem] ">
             {Object.entries(memberData).map(
               ([name, details]: [string, Member]) => (
                 <MemberCard
                   key={details.id || name}
                   name={name}
-                  univ={details.univ}
                   major={details.major}
                 />
               )
             )}
           </div>
-          <div className="Headline_1 mt-[2.44rem] mb-[1.06rem]">EXECUTIVES</div>
-          <div className="grid grid-cols-2 gap-[0.88rem] mb-[7.69rem]">
+          <div className="Headline_1 mt-12 mb-[1.06rem]">EXECUTIVES</div>
+          <div className="grid grid-cols-2 gap-[0.88rem] mb-24">
             {Object.entries(executiveData).map(
               ([name, details]: [string, Executive]) => (
-                <MemberCard
-                  key={name}
-                  name={name}
-                  univ={details.univ}
-                  major={details.major}
-                />
+                <MemberCard key={name} name={name} major={details.major} />
               )
             )}
           </div>
