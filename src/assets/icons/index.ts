@@ -12,3 +12,5 @@ export { default as MembersMenuPc } from "./MembersMenuPc";
 export { default as OnboardingStars } from "./OnboardingStars";
 export { default as Profile } from "./Profile";
 export { default as ResultM } from "./ResultM";
+export { default as Star } from "./Star";
+export { default as StarRed } from "./StarRed";
