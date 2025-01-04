@@ -5,4 +5,6 @@ export { default as Hamburger } from "./Hamburger";
 export { default as LeaderAf } from "./LeaderAf";
 export { default as LeaderBf } from "./LeaderBf";
 export { default as Logo } from "./Logo";
+export { default as MembersMenu } from "./MembersMenu";
 export { default as OnboardingStars } from "./OnboardingStars";
+export { default as Profile } from "./Profile";

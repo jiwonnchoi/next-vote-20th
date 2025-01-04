@@ -34,7 +34,7 @@ export const postLogin = async (username: string, password: string) => {
 
     const { accessToken } = response.data.result;
     const expirationDate = new Date();
-    expirationDate.setTime(expirationDate.getTime() + 60 * 60 * 1000);
+    expirationDate.setTime(expirationDate.getTime() + 24 * 60 * 60 * 1000);
 
     document.cookie = `accessToken=${accessToken}; expires=${expirationDate.toUTCString()};`;
 
