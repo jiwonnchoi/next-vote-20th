@@ -7,7 +7,7 @@ export default function Aboutus() {
         MADE BY.
       </div>
       <div className="flex w-full px-9">
-        <AboutUsMobile className="w-full mt-[2.69rem]" />
+        <AboutUsMobile className="w-full mt-[2.69rem] mb-[9.69rem]" />
       </div>
     </div>
   );
