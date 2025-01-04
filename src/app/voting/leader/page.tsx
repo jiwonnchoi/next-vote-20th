@@ -5,11 +5,13 @@ import { LeaderBf, LeaderAf } from "src/assets/icons";
 import { BE, FE } from "src/constants/memberData";
 import { postLeaderVote } from "src/api/vote";
 import { Members } from "src/types/members";
+import { Result } from "@components/Result";
 
 export default function LeaderVoting() {
   const [selectedName, setSelectedName] = useState<string | null>(null);
   const userPart = localStorage.getItem("userPart");
   const members: Members = userPart === "FE" ? FE.members : BE.members;
+  const hasVoted = localStorage.getItem("isVotingLeader") === "true";
 
   const handleVote = async () => {
     if (!selectedName) return;
@@ -20,10 +22,15 @@ export default function LeaderVoting() {
     try {
       await postLeaderVote(Number(userId), memberId);
       localStorage.setItem("isVotingLeader", "true");
+      window.location.reload();
     } catch (error) {
       console.error("투표 실패:", error);
     }
   };
+
+  if (hasVoted) {
+    return <Result type="leader" />;
+  }
 
   return (
     <>
@@ -46,7 +53,7 @@ export default function LeaderVoting() {
         {Object.keys(members).map((name) => (
           <div key={name} className="relative group">
             <div
-              className={`absolute inset-0 rounded-full bg-[#5DA9FF] blur-md transition-opacity 
+              className={`w-14 h-14 absolute -top-5 -left-1 rounded-full bg-[#AAD2FF] blur-md transition-opacity 
             ${
               selectedName === name
                 ? "opacity-100"
