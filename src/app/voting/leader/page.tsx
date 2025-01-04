@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LeaderBf, LeaderAf } from "src/assets/icons";
 import { BE, FE } from "src/constants/memberData";
 import { postLeaderVote } from "src/api/vote";
@@ -9,9 +9,15 @@ import { Result } from "@components/Result";
 
 export default function LeaderVoting() {
   const [selectedName, setSelectedName] = useState<string | null>(null);
-  const userPart = localStorage.getItem("userPart");
+  const [userPart, setUserPart] = useState("");
+  const [hasVoted, setHasVoted] = useState(false);
+
   const members: Members = userPart === "FE" ? FE.members : BE.members;
-  const hasVoted = localStorage.getItem("isVotingLeader") === "true";
+
+  useEffect(() => {
+    setUserPart(localStorage.getItem("userPart") || "");
+    setHasVoted(localStorage.getItem("isVotingLeader") === "true");
+  }, []);
 
   const handleVote = async () => {
     if (!selectedName) return;
