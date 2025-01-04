@@ -16,10 +16,7 @@ export default function Login() {
   const handleLogin = async () => {
     if (isActive) {
       try {
-        const response = await postLogin(
-          inputInfo.username,
-          inputInfo.password
-        );
+        await postLogin(inputInfo.username, inputInfo.password);
         window.location.replace("/");
       } catch (error) {
         if (axios.isAxiosError(error)) {
