@@ -25,8 +25,8 @@ export default function Members() {
 
   return (
     <>
-      <div className="flex flex-col w-full px-5">
-        <MembersMenu className="absolute w-[21.8125rem] mt-[6.25rem] z-0 right-0 mr-4" />
+      <div className="flex flex-col w-full md:w-[40rem] px-5">
+        <MembersMenu className="absolute w-[21.8125rem] mt-[6.25rem] z-0 right-0 mr-4 md:right-auto md:ml-[16rem]" />
 
         {/* 파트 탭 */}
         <div className="relative z-10 flex justify-end">
