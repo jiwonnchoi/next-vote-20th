@@ -1,11 +1,17 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { LeaderBf } from "src/assets/icons";
 import { DemoBf } from "src/assets/icons";
 
 export default function Voting() {
-  const userPart = localStorage.getItem("userPart");
+  const [userPart, setUserPart] = useState<string | null>(null);
+
+  // 클라이언트 사이드에서만 localStorage 접근
+  useEffect(() => {
+    setUserPart(localStorage.getItem("userPart"));
+  }, []);
 
   return (
     <>
