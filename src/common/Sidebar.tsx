@@ -25,7 +25,7 @@ export const Sidebar = () => {
   };
 
   return (
-    <div className="pc:hidden">
+    <div className="pc:hidden relative z-20">
       <button
         onClick={() => setIsOpen(true)}
         className="fixed top-8 right-5 z-10"
