@@ -24,7 +24,7 @@ export default function Members() {
   const parts = ["PM", "DESIGN", "FRONT - END", "BACK - END"];
 
   return (
-    <div className="flex flex-col w-full px-5">
+    <div className="flex flex-col w-full px-5 pc:ml-10">
       <MembersMenu className=" pc:hidden absolute w-[21.8125rem] top-[6.25rem] right-0 mr-4" />
       <MembersMenuPc className="hidden pc:block absolute w-[14.8125rem] ml-[2.37rem] mt-[11.44rem]" />
 
@@ -48,7 +48,7 @@ export default function Members() {
       </div>
 
       {/* 그리드 */}
-      <div className="flex flex-col w-fit mt-12 self-center pc:self-end pc:mt-[10.69rem] pc:mr-[3.69rem]">
+      <div className="flex flex-col w-fit mt-12 self-center pc:mt-[10.69rem] pc:ml-80">
         <div className="Headline_1 mb-[1.06rem]">20th MEMBERS</div>
         <div className="grid grid-cols-[repeat(2,minmax(0,1fr))] gap-[0.88rem] ">
           {Object.entries(memberData).map(
