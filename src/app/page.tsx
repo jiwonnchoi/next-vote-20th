@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { OnboardingStars } from "src/assets/icons";
 import { getCookie } from "@api/http";
