@@ -67,7 +67,7 @@ export default function Login() {
 
   return (
     <>
-      <div className="w-full flex flex-col mt-[8.13rem] px-5">
+      <div className="w-full flex flex-col mt-[8.13rem] px-5 md:w-[34.375rem]">
         <div className="Headline_5">LOGIN</div>
         <div className="w-full h-[0.0625rem] bg-black mt-[0.88rem] mb-9" />
         <input
