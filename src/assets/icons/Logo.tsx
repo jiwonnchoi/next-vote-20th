@@ -3,7 +3,7 @@ import type { SVGProps } from "react";
 import Link from "next/link";
 
 const SvgLogo = (props: SVGProps<SVGSVGElement>) => (
-  <Link className="pc:hidden absolute top-7 left-6 w-14" href="/">
+  <Link className="pc:hidden absolute top-7 left-6 w-14 z-10" href="/">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
