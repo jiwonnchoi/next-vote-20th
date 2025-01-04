@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { getLeaderResult, getTeamResult } from "@api/result";
 import { ResultM } from "src/assets/icons";
+import { teamData } from "src/constants/teamData";
 
 interface ResultProps {
   type: "leader" | "team";
@@ -16,6 +17,15 @@ interface ResultItem {
 export const Result = ({ type }: ResultProps) => {
   const [results, setResults] = useState<ResultItem[]>([]);
   const userPart = localStorage.getItem("userPart");
+
+  // 굳이 필요하지 않은 부분이긴 한데... 팀이름... 백에서 주는 형식 바꾸고 싶어서...
+  const changeTeamName = (apiTeamName: string) => {
+    return (
+      Object.keys(teamData).find(
+        (teamName) => teamName.replace(/\s+/g, "").toUpperCase() === apiTeamName
+      ) || apiTeamName
+    );
+  };
 
   useEffect(() => {
     const fetchResults = async () => {
@@ -33,15 +43,12 @@ export const Result = ({ type }: ResultProps) => {
           }
         } else {
           const data = await getTeamResult();
-          const teamData = data[0];
-          if (teamData) {
-            setResults(
-              teamData.results.map((r) => ({
-                name: r.team_name,
-                voteCount: r.voteCount,
-              }))
-            );
-          }
+          setResults(
+            data.results.map((r) => ({
+              name: changeTeamName(r.team_name),
+              voteCount: r.voteCount,
+            }))
+          );
         }
       } catch (error) {
         console.error(error);
@@ -52,15 +59,19 @@ export const Result = ({ type }: ResultProps) => {
 
   return (
     <>
-      <div className="relative w-[23rem] mr-7 self-center">
+      <div
+        className={`Body_${
+          type === "leader" ? 1 : 2
+        }_bold relative w-[23rem] mr-7 self-center`}
+      >
         <ResultM />
-        <div className="Body_1_bold absolute w-24 top-[4.85rem] left-[4.75rem] text-center">
+        <div className="absolute w-32 top-[4.85rem] left-[3.7rem] text-center">
           {results[0]?.name} | {results[0]?.voteCount}표
         </div>
-        <div className="Body_1_bold absolute w-24 text-center top-[14.78rem] right-6">
+        <div className="absolute w-32 text-center top-[14.78rem] right-2">
           {results[1]?.name} | {results[1]?.voteCount}표
         </div>
-        <div className="Body_1_bold absolute w-24 text-center bottom-8 left-[6.25rem]">
+        <div className="absolute w-32 text-center bottom-8 left-[5.25rem]">
           {results[2]?.name} | {results[2]?.voteCount}표
         </div>
       </div>
