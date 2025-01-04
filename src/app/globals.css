@@ -24,6 +24,14 @@
   input:focus {
     outline: none;
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @font-face {

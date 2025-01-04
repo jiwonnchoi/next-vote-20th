@@ -3,14 +3,14 @@ export const FE = {
     강다혜: {
       id: 11,
       univ: "CEOS UNIV",
-      major: "Computer Science",
+      major: "Philosophy / Computer Science",
     },
     권혜인: {
       id: 12,
       univ: "CEOS UNIV",
-      major: "Computer Science",
+      major: "Science & Industry Convergence",
     },
-    류원: {
+    김류원: {
       id: 13,
       univ: "CEOS UNIV",
       major: "Computer Science",
@@ -62,7 +62,7 @@ export const FE = {
     },
     김승완: {
       univ: "CEOS UNIV",
-      major: "Computer Science",
+      major: "Business Administration",
     },
     배성준: {
       univ: "CEOS UNIV",
@@ -85,7 +85,7 @@ export const BE = {
     나혜인: {
       id: 2,
       univ: "CEOS UNIV",
-      major: "Computer Science",
+      major: "Cyber Security",
     },
     남승현: {
       id: 3,
@@ -100,12 +100,12 @@ export const BE = {
     유지민: {
       id: 5,
       univ: "CEOS UNIV",
-      major: "Computer Science",
+      major: "Mechanical and Biomedical Engineering",
     },
     이채원: {
       id: 6,
       univ: "CEOS UNIV",
-      major: "Computer Science",
+      major: "Brain Science",
     },
     이한슬: {
       id: 7,
@@ -144,6 +144,144 @@ export const BE = {
     정기민: {
       univ: "CEOS UNIV",
       major: "Computer Science",
+    },
+  },
+};
+
+export const PM = {
+  members: {
+    구연성: {
+      univ: "CEOS UNIV",
+      major: "Business Administration",
+    },
+    김윤서: {
+      univ: "CEOS UNIV",
+      major: "Korean Language",
+    },
+    김현승: {
+      univ: "CEOS UNIV",
+      major: "Computer Science",
+    },
+    서다원: {
+      univ: "CEOS UNIV",
+      major: "Biotechnology",
+    },
+    손하늘: {
+      univ: "CEOS UNIV",
+      major: "Computer Science",
+    },
+    이채원: {
+      univ: "CEOS UNIV",
+      major: "Communication & Media",
+    },
+    정대철: {
+      univ: "CEOS UNIV",
+      major: "Business Administration",
+    },
+    조은호: {
+      univ: "CEOS UNIV",
+      major: "Industrial Engineering",
+    },
+    주세연: {
+      univ: "CEOS UNIV",
+      major: "Business Administration",
+    },
+    현종혁: {
+      univ: "CEOS UNIV",
+      major: "Computer Science",
+    },
+  },
+  executives: {
+    김승민: {
+      univ: "CEOS UNIV",
+      major: "Computer Science",
+    },
+    이도현: {
+      univ: "CEOS UNIV",
+      major: "Computer Science",
+    },
+    박도울: {
+      univ: "CEOS UNIV",
+      major: "Computer Science",
+    },
+    하창우: {
+      univ: "CEOS UNIV",
+      major: "Computer Science",
+    },
+    임세민: {
+      univ: "CEOS UNIV",
+      major: "Computer Science",
+    },
+    서기석: {
+      univ: "CEOS UNIV",
+      major: "Computer Science",
+    },
+    안수빈: {
+      univ: "CEOS UNIV",
+      major: "Computer Science",
+    },
+    오세윤: {
+      univ: "CEOS UNIV",
+      major: "Computer Science",
+    },
+  },
+};
+
+export const Design = {
+  members: {
+    김수연: {
+      univ: "CEOS UNIV",
+      major: "Art & Design",
+    },
+    김태양: {
+      univ: "CEOS UNIV",
+      major: "Visual Communication Design",
+    },
+    민솔: {
+      univ: "CEOS UNIV",
+      major: "Visual Communication Design",
+    },
+    박재원: {
+      univ: "CEOS UNIV",
+      major: "Ceramics & Glass",
+    },
+    박하경: {
+      univ: "CEOS UNIV",
+      major: "Visual Communication Design",
+    },
+    윤유빈: {
+      univ: "CEOS UNIV",
+      major: "Visual Communication Design",
+    },
+    이채린: {
+      univ: "CEOS UNIV",
+      major: "Art & Design",
+    },
+    장윤정: {
+      univ: "CEOS UNIV",
+      major: "Industrial Design",
+    },
+    진나경: {
+      univ: "CEOS UNIV",
+      major: "Visual Communication Design",
+    },
+    최선우: {
+      univ: "CEOS UNIV",
+      major: "Visual Communication Design",
+    },
+  },
+  executives: {
+    김유빈: {
+      univ: "CEOS UNIV",
+      major: "Art & Design",
+    },
+    윤서윤: {
+      univ: "CEOS UNIV",
+      major: "Art & Design",
+    },
+    구윤지: {
+      univ: "CEOS UNIV",
+      major: "Art & Design",
     },
   },
 };
