@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
+    <html className="no-scrollbar">
       <body>
         <Logo />
         <Header />

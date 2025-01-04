@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Close, Hamburger } from "src/assets/icons";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { getCookie, deleteCookie } from "@api/http";
 
@@ -14,10 +14,17 @@ const MENU_ITEMS = [
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
+  const [isLogin, setIsLogin] = useState(false);
+  const [currentPath, setCurrentPath] = useState("");
   const router = useRouter();
 
-  const isLogin = getCookie("accessToken");
+  useEffect(() => {
+    const token = getCookie("accessToken");
+    setIsLogin(!!token);
+
+    setCurrentPath(window.location.pathname);
+  }, []);
+
   const handleLogout = () => {
     deleteCookie("accessToken");
     window.localStorage.clear();
@@ -36,11 +43,9 @@ export const Sidebar = () => {
         <div className="fixed inset-0 z-20" onClick={() => setIsOpen(false)} />
       )}
       <div
-        className={`
-          fixed top-0 right-0 h-full bg-Grey-900 shadow-lg w-72
+        className={`fixed top-0 right-0 h-full bg-Grey-900 shadow-lg w-72
           transform transition-transform duration-300 ease-in-out z-30
-          ${isOpen ? "translate-x-0" : "translate-x-full"}
-        `}
+          ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <button
           onClick={() => setIsOpen(false)}
@@ -54,7 +59,7 @@ export const Sidebar = () => {
               key={item.href}
               href={item.href}
               className={`Headline_3 ${
-                pathname === item.href ? "text-Main_Blue" : "text-white"
+                currentPath === item.href ? "text-Main_Blue" : "text-white"
               } hover:text-Main_Blue transition-colors`}
               onClick={() => setIsOpen(false)}
             >
@@ -75,7 +80,7 @@ export const Sidebar = () => {
             <Link
               href="/login"
               className={`Headline_3 ${
-                pathname === "/login" ? "text-Main_Blue" : "text-white"
+                currentPath === "/login" ? "text-Main_Blue" : "text-white"
               } hover:text-Main_Blue transition-colors`}
               onClick={() => setIsOpen(false)}
             >

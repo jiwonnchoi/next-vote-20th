@@ -2,6 +2,8 @@ import Link from "next/link";
 import { OnboardingStars } from "src/assets/icons";
 import { getCookie } from "@api/http";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   const isLogin = getCookie("accessToken");
   const isComplete =
