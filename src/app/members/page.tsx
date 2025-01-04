@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MembersMenu } from "src/assets/icons";
+import { MembersMenu, MembersMenuPc } from "src/assets/icons";
 import MemberCard from "@components/MemberCard";
 import { FE, BE, PM, Design } from "src/constants/memberData";
 
@@ -25,16 +25,19 @@ export default function Members() {
 
   return (
     <div className="flex flex-col w-full px-5">
-      <MembersMenu className="absolute w-[21.8125rem] top-[6.25rem] right-0 mr-4" />
+      <MembersMenu className=" pc:hidden absolute w-[21.8125rem] top-[6.25rem] right-0 mr-4" />
+      <MembersMenuPc className="hidden pc:block absolute w-[14.8125rem] ml-[2.37rem] mt-[11.44rem]" />
 
       {/* 파트 탭 */}
-      <div className="relative flex justify-end">
-        <div className="flex flex-row w-[19.8125rem] h-[2.875rem] p-3 justify-between items-center mt-[9.63rem]">
+      <div className="relative flex justify-end pc:justify-start pc:absolute">
+        <div className="flex flex-row pc:flex-col pc:w-[9.6875rem] pc:h-[18rem] pc:items-start pc:mt-[12.2rem] pc:p-5 pc:ml-[4.06rem] w-[19.8125rem] h-[2.875rem] p-3 justify-between items-center mt-[9.63rem]">
           {parts.map((part) => (
             <button
               key={part}
-              className={`Body_2_bold ${
-                selectedPart === part ? "underline underline-offset-8" : ""
+              className={`Body_2_bold pc:Subhead_1_bold pc:text-left ${
+                selectedPart === part
+                  ? "underline underline-offset-6 font-semibold"
+                  : ""
               }`}
               onClick={() => setSelectedPart(part)}
             >
@@ -45,7 +48,7 @@ export default function Members() {
       </div>
 
       {/* 그리드 */}
-      <div className="flex flex-col w-fit mt-12 self-center ">
+      <div className="flex flex-col w-fit mt-12 self-center pc:self-end pc:mt-[10.69rem] pc:mr-[3.69rem]">
         <div className="Headline_1 mb-[1.06rem]">20th MEMBERS</div>
         <div className="grid grid-cols-[repeat(2,minmax(0,1fr))] gap-[0.88rem] ">
           {Object.entries(memberData).map(
