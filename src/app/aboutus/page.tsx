@@ -6,7 +6,7 @@ export default function Aboutus() {
       <div className="z-2 relative Headline_1 mt-[7.94rem] ml-[1.63rem]">
         MADE BY.
       </div>
-      <div className="flex w-full px-9">
+      <div className="self-center w-[80%] mb-24">
         <AboutUsMobile className="w-full mt-[2.69rem]" />
       </div>
     </div>

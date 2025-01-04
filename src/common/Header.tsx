@@ -32,7 +32,9 @@ export const Header = () => {
 
   return (
     <div className="hidden pc:flex absolute w-[90%] border-4 border-Grey-900 justify-between items-center mt-9 z-30 max-w-[85rem]">
-      <div className="w-1/2 Body_2_bold px-7 py-2">2024 CEOS AWARD </div>
+      <Link className="w-1/2 Body_2_bold px-7 py-2" href="/">
+        2024 CEOS AWARD{" "}
+      </Link>
       <div className="w-1/2 bg-gray-900 px-7 py-2">
         <nav className="flex flex-row justify-between">
           {MENU_ITEMS.map((item) => (
