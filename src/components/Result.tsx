@@ -66,7 +66,7 @@ export const Result = ({ type }: ResultProps) => {
       <div
         className={`Body_${
           type === "leader" ? 1 : 2
-        }_bold relative w-[23rem] mr-7 self-center scale-100 pc:scale-125 pc:mt-8`}
+        }_bold relative w-[23rem] mr-7 self-center scale-100 pc:scale-150 pc:mt-16`}
       >
         <ResultM />
         <Link
