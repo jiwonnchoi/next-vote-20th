@@ -15,7 +15,7 @@ export default function Aboutus() {
         </div>
       </div>
       <div
-        className="relative w-[60%] hidden mt-36 pc:flex"
+        className="relative w-[60%] hidden mt-36 pc:flex min-w-[40rem]"
         style={{ aspectRatio: "56 / 35" }}
       >
         <Image
