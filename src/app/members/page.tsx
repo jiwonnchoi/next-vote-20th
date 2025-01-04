@@ -25,11 +25,11 @@ export default function Members() {
 
   return (
     <>
-      <div className="flex flex-col w-full md:w-[40rem] px-5">
-        <MembersMenu className="absolute w-[21.8125rem] mt-[6.25rem] z-0 right-0 mr-4 md:right-auto md:ml-[16rem]" />
+      <div className="flex flex-col w-full px-5">
+        <MembersMenu className="absolute w-[21.8125rem] top-[6.25rem] right-0 mr-4" />
 
         {/* 파트 탭 */}
-        <div className="relative z-10 flex justify-end">
+        <div className="relative flex justify-end">
           <div className="flex flex-row w-[19.8125rem] h-[2.875rem] p-3 justify-between items-center mt-[9.63rem]">
             {parts.map((part) => (
               <button

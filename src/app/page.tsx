@@ -1,16 +1,19 @@
 "use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { OnboardingStars } from "src/assets/icons";
 import { getCookie } from "@api/http";
 
-export const dynamic = "force-dynamic";
-
 export default function Home() {
-  const isLogin = getCookie("accessToken");
-  const isComplete =
-    isLogin &&
-    window.localStorage.getItem("isVotingTeam") &&
-    window.localStorage.getItem("isVotingLeader");
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    const isLoggedIn = getCookie("accessToken");
+    const hasVotedTeam = localStorage.getItem("isVotingTeam");
+    const hasVotedLeader = localStorage.getItem("isVotingLeader");
+    setIsComplete(!!(isLoggedIn && hasVotedTeam && hasVotedLeader));
+  }, []);
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">

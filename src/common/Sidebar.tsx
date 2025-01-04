@@ -15,27 +15,26 @@ const MENU_ITEMS = [
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
-  const [currentPath, setCurrentPath] = useState("");
   const router = useRouter();
 
   useEffect(() => {
     const token = getCookie("accessToken");
     setIsLogin(!!token);
-
-    setCurrentPath(window.location.pathname);
-  }, []);
+  }, [isOpen]);
 
   const handleLogout = () => {
     deleteCookie("accessToken");
     window.localStorage.clear();
+    setIsLogin(false);
+    setIsOpen(false);
     router.push("/");
   };
 
   return (
-    <div className="pc:hidden relative z-20">
+    <div className="pc:hidden">
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed top-8 right-5 z-10"
+        className="absolute top-8 right-5 z-10"
       >
         <Hamburger width={36} height={36} />
       </button>
@@ -58,9 +57,7 @@ export const Sidebar = () => {
             <Link
               key={item.href}
               href={item.href}
-              className={`Headline_3 ${
-                currentPath === item.href ? "text-Main_Blue" : "text-white"
-              } hover:text-Main_Blue transition-colors`}
+              className="Headline_3 text-white hover:text-Main_Blue transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {item.label}
@@ -69,19 +66,14 @@ export const Sidebar = () => {
           {isLogin ? (
             <button
               className="Headline_3 text-white hover:text-Main_Blue transition-colors"
-              onClick={() => {
-                setIsOpen(false);
-                handleLogout();
-              }}
+              onClick={handleLogout}
             >
               LOGOUT
             </button>
           ) : (
             <Link
               href="/login"
-              className={`Headline_3 ${
-                currentPath === "/login" ? "text-Main_Blue" : "text-white"
-              } hover:text-Main_Blue transition-colors`}
+              className="Headline_3 text-white hover:text-Main_Blue transition-colors"
               onClick={() => setIsOpen(false)}
             >
               LOGIN
